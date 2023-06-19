@@ -1,0 +1,67 @@
+/* **********     Reset CSS     ********** */
+
+html {
+    --font: 'Kumbh Sans', sans-serif;
+    --icon-width-small: 1.5rem;
+    --icon-width-medium: 2rem;
+    --icon-width-large: 3rem;
+    box-sizing: border-box;
+    font-family: var(--font);
+    font-size: 16px;
+    scroll-behavior: smooth;
+    --bg-color: #ffffff;
+
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img,
+video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+input,
+button {
+    font-family: var(--font);
+    /* border: none; */
+    /* appearance: none; */
+}
+
+input:focus {
+    outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    margin-block: 0;
+    font-weight: 400;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+}
