@@ -6,6 +6,8 @@ import { CheckBox } from "./Checkbox";
 import { ButtonText } from "./ButtonText";
 import DataContext from "../context/dataContext";
 
+import "./SearchDesktop.css";
+
 export function SearchDesktop() {
   let {filter, handleFilter, handleSearch, handleChechobox, handleReset } = useContext(DataContext);
   let { iconLocation, iconSearchDesktop } = images;
@@ -28,7 +30,7 @@ export function SearchDesktop() {
 
 
   return (
-    <div className="searchDesktop">
+    <div className="search-desktop">
       <InputIcon data={dataLocation} />
       <InputIcon data={dataTitle} />
       <CheckBox handle={handleChechobox} text={"Full time"} />

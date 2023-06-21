@@ -14,9 +14,9 @@ export function SectionJobs() {
 
   return (
     <>
-      <SearchMobile />
-      <SearchFilterModal />
-      <SearchDesktop />
+      {<SearchMobile />}
+      {<SearchFilterModal />}
+      {<SearchDesktop />}
       <div className="jobs">
         {amountJobs.map((el) => (
           <CardDevJob key={`${el.id}${el.company}`} data={el} />

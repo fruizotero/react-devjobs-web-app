@@ -46,6 +46,13 @@ export const DataProvider = ({ children }) => {
     setLoadJobs(loadJobs + 1);
   };
 
+  const handleReset = () => {
+    setFilter(initialState);
+    setLoadJobs(1);
+    setAmountJobs(loadJobsFunc(loadJobs));
+    setHiddenButton(false);
+  };
+
   const handleSearch = () => {
     let { position, location, fullTime } = filter;
     let tmp = [];
@@ -87,14 +94,8 @@ export const DataProvider = ({ children }) => {
     setChecked(!checked);
   };
 
-  const handleReset = () => {
-    setFilter(initialState);
-    setLoadJobs(1);
-    setAmountJobs(loadJobsFunc(loadJobs));
-    setHiddenButton(false);
-  };
-
   let values = {
+    data,
     filter,
     amountJobs,
     hiddenButton,

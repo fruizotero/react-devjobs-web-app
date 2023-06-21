@@ -1,14 +1,16 @@
 /* eslint-disable no-unused-vars */
 
-import React, { Component } from "react";
+import React, { Component} from "react";
 import { SwitchTheme } from "./SwitchTheme";
 import images from "../assets/images";
 
 export function Header() {
   let { patternDesktop, patternMobile, logo } = images;
+  
+  
 
   return (
-    <header className="header" style={{backgroundColor:"black"}}>
+    <header className="header" style={{ backgroundColor: "black" }}>
       <div className="header_content">
         <div className="header_logo_container">
           <img

@@ -5,6 +5,8 @@ import { CheckBox } from "./Checkbox";
 import { ButtonText } from "./ButtonText";
 import { InputIcon } from "./InputIcon";
 
+import "./SearchFilterModal.css";
+
 export function SearchFilterModal() {
   let { iconLocation } = images;
 
