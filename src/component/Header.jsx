@@ -1,16 +1,22 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 
 import React, { Component} from "react";
 import { SwitchTheme } from "./SwitchTheme";
 import images from "../assets/images";
 
-export function Header() {
+import "./Header.css";
+
+export function Header({theme}) {
   let { patternDesktop, patternMobile, logo } = images;
   
-  
+  let style = {
+   "--pattern-desktop":`url(${patternDesktop})`,
+    "--pattern-mobile":`url(${patternMobile})`
+  }
 
   return (
-    <header className="header" style={{ backgroundColor: "black" }}>
+    <header className="header" style={style}>
       <div className="header_content">
         <div className="header_logo_container">
           <img
@@ -19,12 +25,8 @@ export function Header() {
             className="header_logo"
           />
         </div>
-        <SwitchTheme />
+        <SwitchTheme theme={theme} />
       </div>
-      <picture className="header_image">
-        <source media="(min-width: 512px)" srcSet={patternDesktop}></source>
-        <img src={patternMobile} alt="Background image header" />
-      </picture>
     </header>
   );
 }

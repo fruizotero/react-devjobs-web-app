@@ -7,7 +7,7 @@ import "./CardDevJob.css";
 
 export function CardDevJob({ data }) {
   let [image, setImage] = useState("");
-  let { logo, postedAt, contract, position, company, location, id } = data;
+  let { logo,logoBackground, postedAt, contract, position, company, location, id } = data;
 
   useEffect(() => {
     const importImage = async (name) => {
@@ -22,8 +22,8 @@ export function CardDevJob({ data }) {
   }, [image]);
 
   return (
-    <article className="job">
-      <div className="job_image_container">
+    <article className="job" >
+      <div className="job_image_container" style={{"--bg-color-logo":logoBackground}}>
         <img
           src={image}
           alt={`Icon company ${company}`}
@@ -34,11 +34,11 @@ export function CardDevJob({ data }) {
         <div className="job_details_top">
           <div className="job_detail">
             <p className="job_postedat">{postedAt}</p>
+            <span className="bullet">.</span>
             <p className="job_contract">{contract}</p>
           </div>
           <div className="job_detail">
-            <Link to={`/details/${id}`}>{position}</Link>
-            {/* <p className="job_position">{position}</p> */}
+            <Link to={`/details/${id}`} className="job_detail_link">{position}</Link>
           </div>
           <div className="job_detail">
             <p className="job_company">{company}</p>

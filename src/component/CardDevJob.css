@@ -1,3 +1,83 @@
-.job_image_container{
-    width: var(--icon-width-small);
+.job {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
+
+.job::before{
+    position: absolute;
+    bottom: 0;
+    content: "";
+    width: 100%;
+    height: calc(100% - 1.75rem);
+    background-color:var(--bg-color-elements);
+    border-radius: 0.5rem;
+}
+
+.job_image_container {
+    z-index: 9;
+    --bg-color-logo: "";
+    display: flex;
+    align-items: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    padding: 0 0.5rem;
+    margin-left: 2rem;
+    background-color: var(--bg-color-logo);
+    border-radius: 1rem;
+}
+
+.job_image {
+    max-height: 1.5rem;
+    object-fit: contain;
+}
+
+.job_details{
+    z-index: 9;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0rem 1rem 1.5rem 2rem;
+}
+
+.job_details_top{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.job_detail{
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.job_postedat, .bullet, .job_contract {
+    font-weight: 500;
+    color: var(--color-text-alt);
+}
+
+.bullet{
+    font-size: 2rem;
+}
+
+.job_detail_link{
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--color-text-titles);
+}
+
+.job_company{
+    color: var(--color-text-alt); 
+}
+
+.job_location{
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: var(--color-violet);
+}
+
+
+
+@media screen and (min-width:32.5rem) {}

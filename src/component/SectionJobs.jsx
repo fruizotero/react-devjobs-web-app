@@ -9,13 +9,18 @@ import { CardDevJob } from "./CardDevJob";
 
 import DataContext from "../context/dataContext";
 
+import "./SectionJobs.css";
+
 export function SectionJobs() {
   let { amountJobs, handleLoad, hiddenButton } = useContext(DataContext);
+  let [hiddenModal, setHiddenModal] = useState(false);
+
+  const handleModal = () => setHiddenModal(!hiddenModal);
 
   return (
     <>
-      {<SearchMobile />}
-      {<SearchFilterModal />}
+      {<SearchMobile handleModal={handleModal} hiddenModal={hiddenModal} />}
+      {<SearchFilterModal handleModal={handleModal} hiddenModal={hiddenModal} />}
       {<SearchDesktop />}
       <div className="jobs">
         {amountJobs.map((el) => (
@@ -25,7 +30,7 @@ export function SectionJobs() {
       {hiddenButton ? (
         ""
       ) : (
-        <ButtonText handle={handleLoad} text={"Load More"} />
+        <ButtonText handle={handleLoad} text={"Load More"} style={"button-text--load"} />
       )}
     </>
   );

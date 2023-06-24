@@ -6,9 +6,11 @@
 
 import React, { Component } from "react";
 
-export function ButtonText({ handle, text }) {
+import "./ButtonText.css";
+
+export function ButtonText({ handle, text, style }) {
   return (
-    <button className="button-text" onClick={handle}>
+    <button className={`button-text ${style}`} onClick={handle}>
       {text}
     </button>
   );

@@ -1,0 +1,28 @@
+.header {
+    position: relative;
+    padding: 2.5rem 5% 0 5%;
+    height: 10rem;
+    background-image:var(--pattern-mobile);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header_content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    
+}
+
+
+
+
+
+@media screen and (min-width:32.5rem) {
+
+.header{
+    background-image: var(--pattern-desktop);
+    padding: 2.5rem 10% 0 10%;
+}
+}

@@ -1,9 +1,29 @@
-.search-desktop{
+.search-desktop {
     display: none;
 }
 
 @media screen and (min-width:32.5rem) {
-    .search-desktop{
+    .search-desktop {
+        position: absolute;
+        top: 0;
+        width: 80%;
+        margin: auto;
         display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 1rem;
+        background-color: var(--bg-color-elements);
+        border-radius: 0.5rem;
+        overflow: hidden;
+        transform: translate(0, -50%);
+    }
+
+    .search-desktop_left,
+    .search-desktop_right {
+        flex: 0 0 auto;
+        flex-grow: 1;
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
     }
 }

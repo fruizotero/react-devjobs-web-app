@@ -51,6 +51,7 @@ export const DataProvider = ({ children }) => {
     setLoadJobs(1);
     setAmountJobs(loadJobsFunc(loadJobs));
     setHiddenButton(false);
+    setChecked(false);
   };
 
   const handleSearch = () => {
@@ -90,7 +91,7 @@ export const DataProvider = ({ children }) => {
     setFilter({ ...filter, ...value });
   };
 
-  const handleChechobox = () => {
+  const handleCheckbox = () => {
     setChecked(!checked);
   };
 
@@ -98,10 +99,12 @@ export const DataProvider = ({ children }) => {
     data,
     filter,
     amountJobs,
+    setChecked,
+    checked,
     hiddenButton,
     handleLoad,
     handleFilter,
-    handleChechobox,
+    handleCheckbox,
     handleSearch,
     handleReset,
   };

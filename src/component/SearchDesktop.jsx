@@ -9,7 +9,8 @@ import DataContext from "../context/dataContext";
 import "./SearchDesktop.css";
 
 export function SearchDesktop() {
-  let {filter, handleFilter, handleSearch, handleChechobox, handleReset } = useContext(DataContext);
+  let { filter,checked, handleFilter, handleSearch, handleCheckbox, handleReset } =
+    useContext(DataContext);
   let { iconLocation, iconSearchDesktop } = images;
 
   let dataLocation = {
@@ -17,25 +18,40 @@ export function SearchDesktop() {
     image: iconLocation,
     alt: "Icon location",
     valueInput: filter.location,
-    handleOnChange: (e) => handleFilter({location:e.target.value}),
+    handleOnChange: (e) => handleFilter({ location: e.target.value }),
   };
   let dataTitle = {
     placeholder: "Filter by title",
     image: iconSearchDesktop,
     alt: "Icon title",
     valueInput: filter.position,
-    handleOnChange: (e) => handleFilter({position:e.target.value}),
+    handleOnChange: (e) => handleFilter({ position: e.target.value }),
   };
-
-
 
   return (
     <div className="search-desktop">
-      <InputIcon data={dataLocation} />
-      <InputIcon data={dataTitle} />
-      <CheckBox handle={handleChechobox} text={"Full time"} />
-      <ButtonText handle={handleSearch} text={"Search"} />
-      <ButtonText handle={handleReset} text={"Reset"} />
+      <div className="search-desktop_left">
+        <InputIcon data={dataTitle} style={"input-icon--style"} />
+        <InputIcon data={dataLocation} style={"input-icon--style"} />
+      </div>
+      <div className="search-desktop_right">
+        <CheckBox
+          handle={handleCheckbox}
+          check={checked}
+          text={"Full time"}
+          style={"checkbox--style"}
+        />
+        <ButtonText
+          handle={handleSearch}
+          text={"Search"}
+          style={"button-text--filter-desktop"}
+        />
+        <ButtonText
+          handle={handleReset}
+          text={"Reset"}
+          style={"button-text--filter-desktop"}
+        />
+      </div>
     </div>
   );
 }

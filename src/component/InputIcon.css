@@ -1,3 +1,28 @@
-.input_icon_container{
+
+/* .input */
+
+.input-icon{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem;
+}
+
+.input-icon_image_container{
     width: var(--icon-width-small);
+}
+
+.input-icon_text{
+    font-size: 0.9rem;
+    background-color: var(--bg-color-elements);
+}
+
+.input-icon_text::placeholder{
+color: var(--color-grey);
+}
+
+.input-icon--style{
+    flex: 0 0 auto;
+    flex-grow: 1;
+    border-right: 2px solid var(--bg-color-elements-alt);
 }

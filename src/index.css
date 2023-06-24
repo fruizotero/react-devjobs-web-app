@@ -2,15 +2,47 @@
 
 html {
     --font: 'Kumbh Sans', sans-serif;
-    --icon-width-small: 1.5rem;
+    --icon-width-1rem:1rem;
+    --icon-width-small: 1.25rem;
     --icon-width-medium: 2rem;
     --icon-width-large: 3rem;
     box-sizing: border-box;
     font-family: var(--font);
     font-size: 16px;
     scroll-behavior: smooth;
-    --bg-color: #ffffff;
+    --color-violet: #5964e0;
+    --color-light-violet: #939bf4;
+    --color-very-dark-blue: #19202d;
+    --color-midnight: #121721;
+    --color-white: #fff;
+    --color-light-grey: #f4f6f8;
+    --color-grey: #9daec2;
+    --color-dark-grey: #6e8098;
 
+    --bg-color: var(--color-light-grey);
+    --bg-color-elements: var(--color-white);
+    --bg-color-elements-alt: var(--color-light-grey);
+    --color-text-titles: var(--color-very-dark-blue);
+    --color-text-alt: var(--color-dark-grey);
+    --color-text-alt-second: var(--color-violet);
+    --color-text-alt-third: var(--color-violet);
+    --color-checkbox:var(--color-light-grey);
+
+    --pattern-desktop:"";
+    --pattern-mobile:"";
+
+
+}
+
+
+
+.dark {
+    --bg-color: var(--color-midnight);
+    --bg-color-elements:var(--color-very-dark-blue);
+    --color-text-titles:var(--color-white);
+    --color-text-alt-third:var(--color-white);
+    --color-checkbox:#313743;
+    --bg-color-elements-alt:#313743;
 }
 
 *,
@@ -42,7 +74,7 @@ video {
 input,
 button {
     font-family: var(--font);
-    /* border: none; */
+    border: none;
     /* appearance: none; */
 }
 
@@ -64,4 +96,9 @@ h6 {
 body {
     width: 100%;
     min-height: 100vh;
+}
+
+.main{
+    min-height: 100vh;
+    background-color: var(--bg-color);
 }

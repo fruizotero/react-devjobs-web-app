@@ -1,3 +1,43 @@
+.filter{
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    background-color: #00000040;
+}
+
+.filter_content{
+    width: 90%;
+    /* padding: 1rem; */
+    margin: 0 auto;
+    background-color: var(--bg-color-elements);
+    border-radius: 0.5rem;
+}
+
+.filter_top{
+    padding: 1rem 0.75rem;
+    border-bottom: 2px solid var(--bg-color-elements-alt);
+}
+
+.filter_bottom{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem 0.75rem;
+    
+}
+
+.modal-hidden{
+    z-index: -1;
+    visibility: 0;
+    opacity: 0;
+}
+
+
 @media screen and (min-width:32.5rem) {
     
     .filter{

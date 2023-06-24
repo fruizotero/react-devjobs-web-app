@@ -1,18 +1,29 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import images from "../assets/images";
 
-export function CheckBox({ handle, text }) {
+import "./CheckBox.css";
+
+export function CheckBox({ handle, check, text, style }) {
+  // let [check, setCheck] = useState(false);
   let { iconCheck } = images;
 
+  const handleOnClick = () => {
+    // handle(!check);
+    // setCheck(!check);
+  };
+
   return (
-    <div className="checkbox">
-      <button className="checkbox_button" onClick={handle}>
+    <div className={`checkbox ${style}`}>
+      <button
+        className={`checkbox_button ${check && "bg-violet"}`}
+        onClick={handle}
+      >
         <img
           src={iconCheck}
           alt="Checkbox image"
-          className="checkbox_image"
+          className={`checkbox_image ${!check && "checkbox_image-hidden"}`}
         />
       </button>
       <p className="checkbox_text">{text}</p>

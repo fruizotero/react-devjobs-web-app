@@ -1,21 +1,24 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React, { Component, useState } from "react";
+import React, { Component, useContext, useState } from "react";
 import images from "../assets/images";
 
 import "./SearchMobile.css";
+import DataContext from "../context/dataContext";
 
-export function SearchMobile() {
+export function SearchMobile({ handleModal }) {
   let { iconFilter, iconSearchMobile } = images;
-  let [inputValue, setInputValue] = useState("");
+  let {
+    filter,
+    handleFilter,
+    handleSearch,
+  } = useContext(DataContext);
 
   const handleOnChange = (e) => {
-    let {value}=e.target;
-    setInputValue(value);
+    let { value } = e.target;
+    handleFilter({position:value})
   };
 
-  const handleOnClick = () => {
-    console.log("click desde serach mobile")
-  };
 
   return (
     <div className="search-mobile">
@@ -23,20 +26,22 @@ export function SearchMobile() {
         <input
           type="text"
           className="search-mobile-input"
-          value={inputValue}
+          value={filter.position}
           onChange={handleOnChange}
-          placeholder="Filter by title"
+          placeholder="Filter by title..."
         />
       </div>
       <div className="search-mobile_right">
-        <div className="search-mobile_icon_container">
-          <img
-            src={iconFilter}
-            alt="Icon filter"
-            className="search-mobile_icon"
-          />
-        </div>
-        <button className="search-mobile_button" onClick={handleOnClick}>
+        <button className="search-mobile_button_filter" onClick={handleModal}>
+          <div className="search-mobile_icon_container">
+            <img
+              src={iconFilter}
+              alt="Icon filter"
+              className="search-mobile_icon"
+            />
+          </div>
+        </button>
+        <button className="search-mobile_button_search" onClick={handleSearch}>
           <div className="search-mobile_icon_container">
             <img
               src={iconSearchMobile}
