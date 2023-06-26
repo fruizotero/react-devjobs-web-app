@@ -4,9 +4,11 @@
 import React, { Component, useEffect, useState } from "react";
 import { ButtonLink } from "./ButtonLink";
 
+import "./CardCompany.css";
+
 export function CardCompany({ data }) {
   let [image, setImage] = useState("");
-  let { company, logo, website, apply } = data;
+  let { company, logo, website, apply, logoBackground } = data;
 
   useEffect(() => {
     const getImage = async (image) => {
@@ -23,7 +25,7 @@ export function CardCompany({ data }) {
 
   return (
     <article className="card-company">
-      <div className="card-company_logo_container">
+      <div className="card-company_logo_container" style={{"--bg-color-card-company":logoBackground}}>
         <img src={image} alt="Company logo" className="card-company_logo" />
       </div>
       <div className="card-company_content">
@@ -34,10 +36,10 @@ export function CardCompany({ data }) {
             target="_blank"
             className="card-company_website"
             rel="noreferrer"
-          ></a>
+          >{website}</a>
         </div>
         <div className="card-company_content_right">
-          <ButtonLink nameClass={""} website={apply} text={"Company Site"} />
+          <ButtonLink nameClass={"button-link--alt"} website={apply} text={"Company Site"} />
         </div>
       </div>
     </article>

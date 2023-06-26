@@ -1,17 +1,15 @@
 /* eslint-disable no-unused-vars */
 
 import React, { Component, useContext, useEffect, useState } from "react";
-import { SectionJobs } from "../component/SectionJobs";
 
-import DataContext from "../context/dataContext";
-
-import "./JobsPage.css";
 import { SearchMobile } from "../component/SearchMobile";
 import { SearchFilterModal } from "../component/SearchFilterModal";
 import { SearchDesktop } from "../component/SearchDesktop";
 import { CardDevJob } from "../component/CardDevJob";
 import { ButtonText } from "../component/ButtonText";
+import DataContext from "../context/dataContext";
 
+import "./JobsPage.css";
 
 export function JobsPage() {
 

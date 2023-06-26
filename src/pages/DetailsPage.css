@@ -1,0 +1,132 @@
+.details {
+    position: relative;
+    padding: 0 5%;
+    color: var(--color-text-alt);
+    transform: translate(0, -4rem);
+}
+
+.button-back {
+    z-index: 99;
+    position: absolute;
+    top: 0;
+    padding: 0.5rem 1rem;
+    text-transform: capitalize;
+    color: var(--color-white);
+    transform: translate(0, calc(-50%));
+    /* transform: translate(calc(-100% - 1rem), -2rem); */
+    border-radius: 1rem;
+    background-color: var(--color-violet);
+    box-shadow: 0 0 0 0.1rem #00000030 ;
+
+}
+
+.details_main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 3rem 2rem;
+    margin: 2rem 0 4rem 0;
+    background-color: var(--bg-color-elements);
+    border-radius: 0.5rem;
+
+}
+
+.details_header {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.details_header_left {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.details_sub {
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+
+}
+
+.details_bullet {
+    width: .3rem;
+    height: .3rem;
+    border-radius: 100%;
+    background-color: var(--color-text-alt);
+}
+
+.details_position {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: var(--color-text-titles);
+}
+
+.details_location {
+    font-weight: bold;
+    color: var(--color-violet);
+}
+
+.details_description {
+    line-height: 1.75rem;
+}
+
+.details_footer {
+    background-color: var(--bg-color-elements);
+}
+
+.details_footer_content {
+    padding: 2rem 5%;
+}
+
+.details_footer_left {
+    display: none;
+}
+
+@media screen and (min-width:32.5rem) {
+
+    .details {
+        padding: 0 10%;
+        /* padding-bottom: 2rem; */
+        max-width: 65rem;
+        margin: auto;
+    }
+
+    .details_header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .details_footer_content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 65rem;
+        padding: 2rem 10%;
+        margin: auto;
+
+    }
+
+
+    .details_footer_left {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .detail_footer_position {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: var(--color-text-titles);
+    }
+
+    .detail_footer_company {
+        color: var(--color-text-alt);
+    }
+
+    .button-back{
+         transform: translate(calc(-100% - 1rem), 0rem);
+    }
+}

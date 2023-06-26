@@ -28,6 +28,8 @@ html {
     --color-text-alt-third: var(--color-violet);
     --color-checkbox:var(--color-light-grey);
 
+    --bg-color-button-alt:#eeeffc;
+
     --pattern-desktop:"";
     --pattern-mobile:"";
 
@@ -43,6 +45,7 @@ html {
     --color-text-alt-third:var(--color-white);
     --color-checkbox:#313743;
     --bg-color-elements-alt:#313743;
+    --bg-color-button-alt:#313743;
 }
 
 *,

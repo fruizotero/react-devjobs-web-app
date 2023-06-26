@@ -1,27 +1,27 @@
-
 /* .input */
 
-.input-icon{
+.input-icon {
     display: flex;
     align-items: center;
     gap: 1rem;
     padding: 0.5rem;
 }
 
-.input-icon_image_container{
+.input-icon_image_container {
     width: var(--icon-width-small);
 }
 
-.input-icon_text{
+.input-icon_text {
     font-size: 0.9rem;
     background-color: var(--bg-color-elements);
+    color: var(--color-text-titles);
 }
 
-.input-icon_text::placeholder{
-color: var(--color-grey);
+.input-icon_text::placeholder {
+    color: var(--color-grey);
 }
 
-.input-icon--style{
+.input-icon--style {
     flex: 0 0 auto;
     flex-grow: 1;
     border-right: 2px solid var(--bg-color-elements-alt);

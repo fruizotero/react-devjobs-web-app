@@ -3,6 +3,8 @@
 import React, { Component } from "react";
 import { ListItem } from "./ListItem";
 
+import "./DescriptionList.css";
+
 export function DescriptionList({ data, title, bullet, orderedList }) {
   let { content, items } = data;
 
@@ -14,7 +16,8 @@ export function DescriptionList({ data, title, bullet, orderedList }) {
         {items.map((el, index) => (
           <ListItem
             key={index}
-            bullet={orderedList ? index + 1 : bullet}
+            number={orderedList && index + 1} 
+            bullet={!orderedList && "description-list_bullet"}
             text={el}
           />
         ))}

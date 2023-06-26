@@ -1,0 +1,28 @@
+.button-link{
+    display: inline-block;
+    width: 100%;
+    min-width: max-content;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    text-transform: capitalize;
+    color: var(--color-white);
+    background-color: var(--color-violet);
+    border-radius: 0.25rem;
+}
+
+.button-link--alt{
+    font-size: 1rem;
+    padding: 1rem;
+    color: var(--color-text-alt-third);
+    background-color: var(--bg-color-button-alt);
+}
+
+@media screen  and (min-width:32.5rem) {
+
+    .button-link--alt{
+        width: max-content;
+    }
+    
+}

@@ -1,0 +1,28 @@
+.list-item {
+    display: flex;
+    gap: 1rem;
+}
+
+.list-item_bullet{
+    font-weight: bold;
+    color: var(--color-violet);
+    line-height: 1.75rem;
+}
+
+.description-list_bullet {
+    position: relative;
+    top: 0.75rem;
+    width: .25rem;
+    height: .25rem;
+    border-radius: 100%;
+    background-color: var(--color-text-alt);
+}
+
+
+.list-item_text {
+    position: relative;
+    margin-left: 1rem;
+    line-height: 1.75rem;
+
+}
+

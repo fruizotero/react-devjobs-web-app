@@ -1,0 +1,16 @@
+.description-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.description-list_title {
+    font-size: 1.35rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    color: var(--color-text-titles);
+}
+
+.description-list_description{
+    line-height: 1.75rem;
+}
