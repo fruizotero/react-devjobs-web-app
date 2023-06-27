@@ -6,13 +6,8 @@ import images from "../assets/images";
 import "./CheckBox.css";
 
 export function CheckBox({ handle, check, text, style }) {
-  // let [check, setCheck] = useState(false);
   let { iconCheck } = images;
 
-  const handleOnClick = () => {
-    // handle(!check);
-    // setCheck(!check);
-  };
 
   return (
     <div className={`checkbox ${style}`}>

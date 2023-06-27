@@ -12,12 +12,18 @@
     border-radius: 0.25rem;
 }
 
+.button-link:hover{
+    background-color: var(--color-light-violet);
+}
+
 .button-link--alt{
     font-size: 1rem;
     padding: 1rem;
     color: var(--color-text-alt-third);
     background-color: var(--bg-color-button-alt);
 }
+
+.button-link--alt{}
 
 @media screen  and (min-width:32.5rem) {
 

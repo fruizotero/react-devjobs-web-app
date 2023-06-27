@@ -68,6 +68,10 @@
     color: var(--color-text-titles);
 }
 
+.job_detail_link:hover{
+    color: var(--color-dark-grey);
+}
+
 .job_company{
     color: var(--color-text-alt); 
 }

@@ -6,6 +6,11 @@
     border-radius: 0.25rem;
 }
 
+.button-text:hover{
+    cursor: pointer;
+    background-color: var(--color-light-violet);
+}
+
 .button-text--filter {
     flex: 0 0 auto;
     flex-grow: 1;

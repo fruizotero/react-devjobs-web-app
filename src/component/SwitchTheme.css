@@ -4,6 +4,8 @@
     gap: 1rem;
 }
 
+
+
 .switch_icon_container {
     width: var(--icon-width-small);
     height: 1.25rem;
@@ -16,12 +18,16 @@
     border-radius: 1rem;
 }
 
+.switch_checks:hover .selector{
+    opacity: 60%;
+}
+
 .switch_check {
     display: block;
     width: 1.5rem;
     height: 1.5rem;
     appearance: none;
-    /* padding: 1rem; */
+    overflow: hidden;
 }
 
 .switch_check:hover {
@@ -39,6 +45,12 @@
     transform: translate(0, -50%);
     transition: all 0.5s ease-in-out;
 }
+
+.selector:hover{
+    cursor: pointer;
+}
+
+
 
 .move{
     left: calc(90% - 1rem);
