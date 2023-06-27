@@ -2,12 +2,11 @@
 import React, { Component, useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { CardCompany } from "../component/CardCompany";
-import DataContext from "../context/dataContext";
 import { DescriptionList } from "../component/DescriptionList";
 import { ButtonLink } from "../component/ButtonLink";
 import { ButtonText } from "../component/ButtonText";
-
 import "./DetailsPage.css";
+import DataContext from "../context/DataContext";
 
 export function DetailsPage() {
   let { id } = useParams();

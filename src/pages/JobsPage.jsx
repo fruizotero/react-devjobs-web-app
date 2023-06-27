@@ -7,9 +7,9 @@ import { SearchFilterModal } from "../component/SearchFilterModal";
 import { SearchDesktop } from "../component/SearchDesktop";
 import { CardDevJob } from "../component/CardDevJob";
 import { ButtonText } from "../component/ButtonText";
-import DataContext from "../context/dataContext";
 
 import "./JobsPage.css";
+import DataContext from "../context/DataContext";
 
 export function JobsPage() {
 

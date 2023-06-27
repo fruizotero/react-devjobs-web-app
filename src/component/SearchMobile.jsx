@@ -4,8 +4,7 @@ import React, { Component, useContext, useState } from "react";
 import images from "../assets/images";
 
 import "./SearchMobile.css";
-import DataContext from "../context/dataContext";
-
+import DataContext from "../context/DataContext";
 export function SearchMobile({ handleModal }) {
   let { iconFilter, iconSearchMobile } = images;
   let {

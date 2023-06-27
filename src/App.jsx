@@ -3,8 +3,8 @@ import { HashRouter, Route, Routes } from "react-router-dom";
 import { Header } from "./component/Header";
 import { JobsPage } from "./pages/JobsPage";
 import { DetailsPage } from "./pages/DetailsPage";
-import { DataProvider } from "./context/dataContext";
 import { useState } from "react";
+import { DataProvider } from "./context/DataContext";
 
 function App() {
 

@@ -4,7 +4,7 @@ import images from "../assets/images";
 import { InputIcon } from "./InputIcon";
 import { CheckBox } from "./Checkbox";
 import { ButtonText } from "./ButtonText";
-import DataContext from "../context/dataContext";
+import DataContext from "../context/DataContext";
 
 import "./SearchDesktop.css";
 

@@ -7,7 +7,8 @@ import { ButtonText } from "./ButtonText";
 import { InputIcon } from "./InputIcon";
 
 import "./SearchFilterModal.css";
-import DataContext from "../context/dataContext";
+import DataContext from "../context/DataContext";
+
 
 export function SearchFilterModal({handleModal, hiddenModal}) {
 
