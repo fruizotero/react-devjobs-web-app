@@ -1,112 +1,118 @@
-/* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import { createContext, useEffect, useState } from "react";
-import data from "../assets/data.json";
+import { createContext, useEffect, useReducer, useState } from "react";
+
+import dataJson from "../assets/data.json";
+
+import {
+  filterReducer,
+  initialStateFilter,
+} from "../reducer/reducers/filterReducer";
+import {
+  setFullTimeAction,
+  setLocationAction,
+  setPositionAction,
+} from "../reducer/actions/filterActions";
+import {
+  initialDataPagination,
+  paginationReducer,
+} from "../reducer/reducers/paginationReducer";
+import { dataReducer, initialData } from "../reducer/reducers/dataReducer";
+import { loadMoreDataAction } from "../reducer/actions/dataActions";
+import { setPageAction } from "../reducer/actions/paginationActions";
 
 const DataContext = createContext();
 
-const initialState = {
-  position: "",
-  location: "",
-  fullTime: "",
-};
-
 export const DataProvider = ({ children }) => {
-  let [loadJobs, setLoadJobs] = useState(1);
-  let [checked, setChecked] = useState(false);
+  let [jobs, setJobs] = useState([]);
+  let [jobsNotFiltered, setJobsNotFiltered] = useState([]);
   let [hiddenButton, setHiddenButton] = useState(false);
-  let [filter, setFilter] = useState(initialState);
-  let [amountJobs, setAmountJobs] = useState([]);
 
-  const loadJobsFunc = (loadJobs) => {
-    let items = 5;
-    let begin = (loadJobs - 1) * items;
-    let end = begin + items;
-    let tmpArray = data.slice(begin, end);
-    return tmpArray;
-  };
+  const [statePagination, dispatchPagination] = useReducer(
+    paginationReducer,
+    initialDataPagination
+  );
+
+  const [stateData, dispatchData] = useReducer(dataReducer, initialData);
+
+  const [stateFilter, dispatchFilter] = useReducer(
+    filterReducer,
+    initialStateFilter
+  );
+
+  let { page, amount } = statePagination;
+
+  let { data } = stateData;
 
   useEffect(() => {
-    if (loadJobs == 1) {
-      let array = loadJobsFunc(loadJobs);
-      setAmountJobs(array);
-    } else {
-      let array = loadJobsFunc(loadJobs);
-      setAmountJobs([...amountJobs, ...array]);
+    dispatchData(loadMoreDataAction(dataJson, amount, page));
+    if (page == 1) {
+      setJobsNotFiltered(data);
     }
-  }, [loadJobs]);
+  }, [page]);
 
   useEffect(() => {
-    let tmp = { fullTime: checked ? "full time" : "" };
-    setFilter({ ...filter, ...tmp });
-  }, [checked]);
+    setJobs(data);
+  }, [data]);
 
-  const handleLoad = () => {
-    setLoadJobs(loadJobs + 1);
+  const loadMore = () => {
+    dispatchPagination(setPageAction(page));
   };
+
+  const setLocation = (location) => dispatchFilter(setLocationAction(location));
+  const setPosition = (position) => dispatchFilter(setPositionAction(position));
+  const setFullTime = (fullTime) => dispatchFilter(setFullTimeAction(fullTime));
 
   const handleReset = () => {
-    setFilter(initialState);
-    setLoadJobs(1);
-    setAmountJobs(loadJobsFunc(loadJobs));
     setHiddenButton(false);
-    setChecked(false);
+    setFullTime(false);
+    setPosition("");
+    setLocation("");
+    setJobs(jobsNotFiltered);
   };
 
   const handleSearch = () => {
-    let { position, location, fullTime } = filter;
-    let tmp = [];
-
-    if (position == "" && location == "" && fullTime == "") {
-      handleReset();
-      return;
-    }
+    let { position, location, fullTime } = stateFilter;
 
     setHiddenButton(true);
 
-    data.forEach((el) => {
-      let isValid = true;
-      let elPosition = el.position.toLowerCase();
-      let elLocation = el.location.toLowerCase();
-      let elContract = el.contract.toLowerCase();
+    const filters = [];
+    if (position !== "") {
+      filters.push(position);
+    }
 
-      if (position != "" && isValid) {
-        isValid = elPosition.includes(position.toLowerCase());
-      }
-      if (location != "" && isValid) {
-        isValid = elLocation.includes(location.toLowerCase());
-      }
-      if (fullTime != "" && isValid) {
-        isValid = elContract.includes("full time");
-      }
+    if (location !== "") {
+      filters.push(location);
+    }
 
-      if (isValid) tmp.push(el);
-    });
+    if (fullTime) {
+      filters.push("full time");
+    }
 
-    setAmountJobs(tmp);
-  };
+    const stringRegex = filters.join(".*");
 
-  const handleFilter = (value) => {
-    setFilter({ ...filter, ...value });
-  };
+    if (stringRegex != "") {
+      const regex = new RegExp(stringRegex, "i");
+      const filteredJobs = dataJson.filter((job) =>
+        regex.test(`${job.position}.*${job.location}.*${job.contract}`)
+      );
 
-  const handleCheckbox = () => {
-    setChecked(!checked);
+      setJobs(filteredJobs);
+    } else {
+      handleReset();
+    }
   };
 
   let values = {
-    data,
-    filter,
-    amountJobs,
-    setChecked,
-    checked,
     hiddenButton,
-    handleLoad,
-    handleFilter,
-    handleCheckbox,
     handleSearch,
     handleReset,
+    setLocation,
+    setPosition,
+    setFullTime,
+    stateFilter,
+    jobs,
+    loadMore,
   };
 
   return <DataContext.Provider value={values}>{children}</DataContext.Provider>;
