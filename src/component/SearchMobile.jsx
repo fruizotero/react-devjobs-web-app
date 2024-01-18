@@ -1,23 +1,24 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React, { Component, useContext, useState } from "react";
-import images from "../assets/images";
+import React, { useContext } from "react";
+
+import DataContext from "../context/DataContext";
 
 import "./SearchMobile.css";
-import DataContext from "../context/DataContext";
+
+import images from "../assets/images";
+
 export function SearchMobile({ handleModal }) {
   let { iconFilter, iconSearchMobile } = images;
-  let {
-    filter,
-    handleFilter,
-    handleSearch,
-  } = useContext(DataContext);
+
+  let { handleSearch, stateFilter, setPosition } = useContext(DataContext);
+
+  let { position } = stateFilter;
 
   const handleOnChange = (e) => {
     let { value } = e.target;
-    handleFilter({position:value})
+    setPosition(value);
   };
-
 
   return (
     <div className="search-mobile">
@@ -25,7 +26,7 @@ export function SearchMobile({ handleModal }) {
         <input
           type="text"
           className="search-mobile-input"
-          value={filter.position}
+          value={position}
           onChange={handleOnChange}
           placeholder="Filter by title..."
         />

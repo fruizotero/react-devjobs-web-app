@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 
-import React, { Component, useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import { SearchMobile } from "../component/SearchMobile";
 import { SearchFilterModal } from "../component/SearchFilterModal";
@@ -8,34 +8,43 @@ import { SearchDesktop } from "../component/SearchDesktop";
 import { CardDevJob } from "../component/CardDevJob";
 import { ButtonText } from "../component/ButtonText";
 
-import "./JobsPage.css";
 import DataContext from "../context/DataContext";
 
-export function JobsPage() {
+import "./JobsPage.css";
 
-  let { amountJobs, handleLoad, hiddenButton } = useContext(DataContext);
+export function JobsPage() {
+  let { jobs, loadMore, hiddenButton } = useContext(DataContext);
   let [hiddenModal, setHiddenModal] = useState(false);
 
   const handleModal = () => setHiddenModal(!hiddenModal);
 
   useEffect(() => {
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
   }, []);
 
   return (
     <section className="jobs-page">
       {<SearchMobile handleModal={handleModal} hiddenModal={hiddenModal} />}
-      {<SearchFilterModal handleModal={handleModal} hiddenModal={hiddenModal} />}
+      {
+        <SearchFilterModal
+          handleModal={handleModal}
+          hiddenModal={hiddenModal}
+        />
+      }
       {<SearchDesktop />}
       <div className="jobs">
-        {amountJobs.map((el) => (
+        {jobs.map((el) => (
           <CardDevJob key={`${el.id}${el.company}`} data={el} />
         ))}
       </div>
       {hiddenButton ? (
         ""
       ) : (
-        <ButtonText handle={handleLoad} text={"Load More"} style={"button-text--load"} />
+        <ButtonText
+          handle={loadMore}
+          text={"Load More"}
+          style={"button-text--load"}
+        />
       )}
     </section>
   );

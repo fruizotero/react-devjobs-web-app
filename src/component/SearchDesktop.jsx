@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
-import React, { Component, useContext } from "react";
-import images from "../assets/images";
+import React, { useContext } from "react";
+
 import { InputIcon } from "./InputIcon";
 import { CheckBox } from "./Checkbox";
 import { ButtonText } from "./ButtonText";
@@ -8,25 +8,30 @@ import DataContext from "../context/DataContext";
 
 import "./SearchDesktop.css";
 
+import images from "../assets/images";
+
 export function SearchDesktop() {
-  let { filter,checked, handleFilter, handleSearch, handleCheckbox, handleReset } =
+  let { handleSearch, handleReset, stateFilter, setPosition, setLocation, setFullTime } =
     useContext(DataContext);
   let { iconLocation, iconSearchDesktop } = images;
+  let {position, location, fullTime } = stateFilter;
 
   let dataLocation = {
     placeholder: "Filter by location",
     image: iconLocation,
     alt: "Icon location",
-    valueInput: filter.location,
-    handleOnChange: (e) => handleFilter({ location: e.target.value }),
+    valueInput: location,
+    handleOnChange: (e) => setLocation(e.target.value),
   };
   let dataTitle = {
     placeholder: "Filter by title",
     image: iconSearchDesktop,
     alt: "Icon title",
-    valueInput: filter.position,
-    handleOnChange: (e) => handleFilter({ position: e.target.value }),
+    valueInput: position,
+    handleOnChange: (e) => setPosition(e.target.value),
   };
+
+  const handleCheckbox = () => setFullTime(!fullTime);
 
   return (
     <div className="search-desktop">
@@ -37,7 +42,7 @@ export function SearchDesktop() {
       <div className="search-desktop_right">
         <CheckBox
           handle={handleCheckbox}
-          check={checked}
+          check={fullTime}
           text={"Full time"}
           style={"checkbox--style"}
         />
