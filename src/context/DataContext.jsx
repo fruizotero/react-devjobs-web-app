@@ -46,13 +46,13 @@ export const DataProvider = ({ children }) => {
 
   useEffect(() => {
     dispatchData(loadMoreDataAction(dataJson, amount, page));
-    if (page == 1) {
-      setJobsNotFiltered(data);
-    }
   }, [page]);
 
   useEffect(() => {
     setJobs(data);
+    if (page == 1) {
+      setJobsNotFiltered(data);
+    }
   }, [data]);
 
   const loadMore = () => {
